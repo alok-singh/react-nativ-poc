@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import PicturePost from "../components/picturePost";
-import { Link } from "react-router-native";
+import CustomLink from "../components/link";
+import PageWrapper from "../components/pageWrapper";
+import PageTitle from "../components/pageTitle";
 
 export default class PictureListing extends Component {
     constructor(props) {
@@ -23,26 +25,26 @@ export default class PictureListing extends Component {
     }
     render() {
         return (
-            <View>
+            <PageWrapper>
                 <ScrollView>
-                    <Text style={{ fontSize: 32, marginBottom: 10 }}>Pictures</Text>
-					{this.state.photos.slice(0, 50).map((post, index) => (
-						<PicturePost
+                    <PageTitle text="Pictures" />
+                    {this.state.photos.slice(0, 50).map((post, index) => (
+                        <PicturePost
                             key={`picture-${index}`}
                             title={post.title}
                             imageUrl={post.thumbnailUrl}
-							style={styles.post}
-						/>
-					))}
-                    <Link to="/posts"><Text style={{padding: 10, color: 'white', backgroundColor: '#4c8bf5', textAlign: 'center', marginTop: 16}}>Go to Posts</Text></Link>
-				</ScrollView>
-            </View>
+                            style={styles.post}
+                        />
+                    ))}
+                    <CustomLink text="Home" url="/" />
+                </ScrollView>
+            </PageWrapper>
         );
     }
 }
 
 const styles = StyleSheet.create({
     post: {
-        marginBottom: 10,
+        marginBottom: 10
     }
 });
