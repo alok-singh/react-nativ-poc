@@ -6,10 +6,10 @@ export default class PageTitle extends Component {
         return (
             <TextInput
                 style={{
-                    ...this.props.style,
                     fontSize: 32,
                     marginBottom: 10,
-                    color: "white"
+                    color: "white",
+                    ...this.props.style,
                 }}
             >
                 {this.props.text}

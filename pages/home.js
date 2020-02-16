@@ -30,6 +30,15 @@ export default class Home extends Component {
                 >
                     <Text style={styles.text}>Notepad</Text>
                 </Link>
+                <Link
+                    to="/file-system"
+                    style={{
+                        ...styles.textWrapper,
+                        marginBottom: 16
+                    }}
+                >
+                    <Text style={styles.text}>File System</Text>
+                </Link>
                 <Link to="/rich-notepad" style={styles.textWrapper}>
                     <Text style={styles.text}>Rich Notepad</Text>
                 </Link>

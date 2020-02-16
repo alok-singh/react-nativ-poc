@@ -1,14 +1,22 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, TouchableWithoutFeedback, Keyboard } from "react-native";
+
+const DismissKeyboard = ({ children }) => (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      {children}
+    </TouchableWithoutFeedback>
+  );
 
 export default class PageWrapper extends Component {
     render() {
         return (
-            <View style={styles.wrapper}>
-                <View style={styles.container}>
-                    {this.props.children}
+            <DismissKeyboard>
+                <View style={{...styles.wrapper, ...this.props.style}}>
+                    <View style={styles.container}>
+                        {this.props.children}
+                    </View>
                 </View>
-            </View>
+            </DismissKeyboard>
         );
     }
 }
@@ -17,7 +25,8 @@ const styles = StyleSheet.create({
     container: {
         margin: 15,
         marginTop: 30,
-        marginBottom: 30
+        marginBottom: 30,
+        flex: 1,
     },
     wrapper: {
         backgroundColor: "#000",

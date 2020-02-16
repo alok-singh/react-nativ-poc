@@ -4,7 +4,6 @@ import {
     StyleSheet,
     Keyboard,
     TouchableWithoutFeedback,
-    Text,
     KeyboardAvoidingView
 } from "react-native";
 
@@ -41,26 +40,29 @@ export default class RichNotepad extends Component {
 
     render() {
         return (
-            <PageWrapper>
-                <PageTitle text="Notes" style={{marginTop: 10}} />
+            <PageWrapper style={{ backgroundColor: "#fff" }}>
+                <PageTitle
+                    text="Notes"
+                    style={{ marginTop: 10, color: "#0AF" }}
+                />
                 <KeyboardAvoidingView
                     behavior="padding"
-                    enabled
                     keyboardVerticalOffset={0}
                     style={{
-                        flex: 1,
-                        paddingTop: 20,
-                        backgroundColor: "transparent",
-                        flexDirection: "column",
-                        justifyContent: "flex-end",
+                        flex: 1
                     }}
                 >
-                    <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={{flex: 1}}>
+                    <TouchableWithoutFeedback
+                        onPress={Keyboard.dismiss}
+                        style={{ flex: 1 }}
+                    >
                         <View style={styles.main}>
                             <CNRichTextEditor
                                 ref={input => (this.editor = input)}
                                 onSelectedTagChanged={this.onSelectedTagChanged}
-                                onSelectedStyleChanged={this.onSelectedStyleChanged}
+                                onSelectedStyleChanged={
+                                    this.onSelectedStyleChanged
+                                }
                                 value={this.state.value}
                                 style={{ backgroundColor: "#fff", flex: 1 }}
                                 styleList={defaultStyles}
@@ -82,7 +84,7 @@ const styles = StyleSheet.create({
         paddingLeft: 0,
         paddingRight: 0,
         paddingBottom: 15,
-        shadowColor: "#fff",
+        shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 1
@@ -92,3 +94,8 @@ const styles = StyleSheet.create({
         elevation: 3
     }
 });
+
+/* <PageWrapper>
+    <PageTitle text="Notes" style={{marginTop: 10}} />
+    
+</PageWrapper> */

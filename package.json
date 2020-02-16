@@ -5,9 +5,11 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "unlink": "react-native unlink @react-native-community/async-storage"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.7.1",
     "expo": "~36.0.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
